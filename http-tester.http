@@ -1,0 +1,35 @@
+POST http://localhost:3000/usemongo/sensor/1/55186 HTTP/1.1
+content-type: application/json
+
+{
+    "longitude" : "-12931123",
+    "latitude" : "-12931123",
+    "value" : 35
+}
+###
+GET http://localhost:3000/usemongo/sensor/1/55186 HTTP/1.1
+content-type: application/json
+###
+POST http://localhost:3000/usecouch/sensor/1/55186 HTTP/1.1
+content-type: application/json
+
+{
+    "longitude" : "-12931123",
+    "latitude" : "-12931123",
+    "value" : 35
+}
+###
+GET http://localhost:3000/usecouch/sensor/1/55186 HTTP/1.1
+content-type: application/json
+###
+POST http://localhost:3000/usearango/sensor/1/55186 HTTP/1.1
+content-type: application/json
+
+{
+    "longitude" : "-12931123",
+    "latitude" : "-12931123",
+    "value" : 35
+}
+###
+GET http://localhost:3000/usearango/sensor/1/55186 HTTP/1.1
+content-type: application/json
