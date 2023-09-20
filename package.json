@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon index",
-    "start": "node index"
+    "start:dev": "nodemon index.js --bind 0.0.0.0:3000",
+    "start": "node index --bind 0.0.0.0:3000"
   },
   "keywords": [],
   "author": "",
