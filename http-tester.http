@@ -1,35 +1,39 @@
-POST http://localhost:3000/usemongo/sensor/1/55186 HTTP/1.1
+@base_url = http://34.123.112.126:3000
+# format url /{usedatabase}/sensor/{sensorid}/{zonaid}
+GET {{base_url}}/
+###
+POST {{base_url}}/usemongo/sensor/1/55186 HTTP/1.1
 content-type: application/json
-
+# request body :
 {
     "longitude" : "-12931123",
     "latitude" : "-12931123",
     "value" : 35
 }
 ###
-GET http://localhost:3000/usemongo/sensor/1/55186 HTTP/1.1
+GET {{base_url}}/usemongo/sensor/1/55186 HTTP/1.1
 content-type: application/json
 ###
-POST http://localhost:3000/usecouch/sensor/1/55186 HTTP/1.1
+POST {{base_url}}/usecouch/sensor/1/55186 HTTP/1.1
 content-type: application/json
-
+# request body :
 {
     "longitude" : "-12931123",
     "latitude" : "-12931123",
     "value" : 35
 }
 ###
-GET http://localhost:3000/usecouch/sensor/1/55186 HTTP/1.1
+GET {{base_url}}/usecouch/sensor/1/55186 HTTP/1.1
 content-type: application/json
 ###
-POST http://localhost:3000/usearango/sensor/1/55186 HTTP/1.1
+POST {{base_url}}/usearango/sensor/1/55186 HTTP/1.1
 content-type: application/json
-
+# request body :
 {
     "longitude" : "-12931123",
     "latitude" : "-12931123",
     "value" : 35
 }
 ###
-GET http://localhost:3000/usearango/sensor/1/55186 HTTP/1.1
+GET {{base_url}}/usearango/sensor/1/55186 HTTP/1.1
 content-type: application/json
