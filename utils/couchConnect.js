@@ -6,6 +6,7 @@ const { Ottoman } = require("ottoman");
 const ottoman = new Ottoman({
   modelKey: "type",
   scopeName: "_default",
+  connectTimeout: 30000,
 });
 const couchConnect = async () => {
   try {
@@ -15,10 +16,11 @@ const couchConnect = async () => {
       username: process.env.COUCH_USER,
       password: process.env.COUCH_PASS,
     });
-    console.log(`CouchDB Connected `);
+    await ottoman.start();
+    console.log(`Couchbase Connected `);
   } catch (err) {
     console.log(err);
-    process.exit(1);
+    // process.exit(1);
   }
 };
 

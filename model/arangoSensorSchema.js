@@ -10,7 +10,6 @@ module.exports = ignitor.Model("Sensor", {
     required: true,
   },
   data: {
-    location: Object,
-    value: Number,
+    type: Array,
   },
 });

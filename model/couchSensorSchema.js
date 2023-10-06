@@ -9,10 +9,7 @@ const sensorSchema = new Schema({
     type: String,
     required: true,
   },
-  data: {
-    location: Object,
-    value: Number,
-  },
+  data: [{ data: Object, value: Number }],
 });
 
 const Sensor = model("sensor", sensorSchema);

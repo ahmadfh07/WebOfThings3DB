@@ -1,39 +1,85 @@
-@base_url = http://34.123.112.126:3000
+@base_url = http://localhost:3000
+#http://localhost:3000
+#http://34.123.112.126:3000
 # format url /{usedatabase}/sensor/{sensorid}/{zonaid}
 GET {{base_url}}/
+###MONGODB
 ###
-POST {{base_url}}/usemongo/sensor/1/55186 HTTP/1.1
+POST {{base_url}}/usemongo/useembed/sensor/1/55186 HTTP/1.1
 content-type: application/json
-# request body :
+
 {
     "longitude" : "-12931123",
     "latitude" : "-12931123",
     "value" : 35
 }
 ###
-GET {{base_url}}/usemongo/sensor/1/55186 HTTP/1.1
+GET {{base_url}}/usemongo/useembed/sensor/1/55186 HTTP/1.1
 content-type: application/json
 ###
-POST {{base_url}}/usecouch/sensor/1/55186 HTTP/1.1
+###
+POST {{base_url}}/usemongo/usereference/sensor/1/55186 HTTP/1.1
 content-type: application/json
-# request body :
+
 {
     "longitude" : "-12931123",
     "latitude" : "-12931123",
     "value" : 35
 }
 ###
-GET {{base_url}}/usecouch/sensor/1/55186 HTTP/1.1
+GET {{base_url}}/usemongo/usereference/sensor/1/55186 HTTP/1.1
 content-type: application/json
+
+###COUCHDB
 ###
-POST {{base_url}}/usearango/sensor/1/55186 HTTP/1.1
+POST {{base_url}}/usecouch/useembed/sensor/1/55186 HTTP/1.1
 content-type: application/json
-# request body :
+
 {
     "longitude" : "-12931123",
     "latitude" : "-12931123",
     "value" : 35
 }
 ###
-GET {{base_url}}/usearango/sensor/1/55186 HTTP/1.1
+GET {{base_url}}/usecouch/useembed/sensor/1/55186 HTTP/1.1
+content-type: application/json
+###
+###
+POST {{base_url}}/usecouch/usereference/sensor/1/55186 HTTP/1.1
+content-type: application/json
+
+{
+    "longitude" : "-12931123",
+    "latitude" : "-12931123",
+    "value" : 35
+}
+###
+GET {{base_url}}/usecouch/usereference/sensor/1/55186 HTTP/1.1
+content-type: application/json
+
+
+###ARANGODB
+###
+POST {{base_url}}/usearango/useembed/sensor/1/55186 HTTP/1.1
+content-type: application/json
+
+{
+    "longitude" : "-12931123",
+    "latitude" : "-12931123",
+    "value" : 35
+}
+###
+GET {{base_url}}/usearango/useembed/sensor/1/55186 HTTP/1.1
+content-type: application/json
+###
+POST {{base_url}}/usearango/usereference/sensor/2/55286 HTTP/1.1
+content-type: application/json
+
+{
+    "longitude" : "-12931123",
+    "latitude" : "-12931123",
+    "value" : 35
+}
+###
+GET {{base_url}}/usearango/usereference/sensor/2/55286 HTTP/1.1
 content-type: application/json
