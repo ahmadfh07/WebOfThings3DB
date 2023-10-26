@@ -22,7 +22,7 @@ router.post("/useembed/sensor/:sensorId/:zoneId", async (req, res) => {
       { sensor_id: req.params.sensorId, zone_id: req.params.zoneId },
       { $push: { data: { location: { longitude: req.body.longitude, latitude: req.body.latitude }, value: req.body.value } } }
     );
-    res.send({ error: false, msg: "Sensor data input success!", data: newSensor });
+    res.send({ error: false, msg: "Sensor data input success!" });
   } catch (err) {
     res.send({ error: true, msg: err.message });
   }
@@ -45,7 +45,7 @@ router.post("/usereference/sensor/:sensorId/:zoneId", async (req, res) => {
       const Sensor = await sensorReference.insertMany({ sensor_id: req.params.sensorId, zone_id: req.params.zoneId });
     }
     const data = await Data.insertMany({ sensor_id: req.params.sensorId, location: { longitude: req.body.longitude, latitude: req.body.latitude }, value: req.body.value });
-    res.send({ error: false, msg: "Sensor data input success!", data: { Sensor, data } });
+    res.send({ error: false, msg: "Sensor data input success!" });
   } catch (err) {
     res.send({ error: true, msg: err.message });
   }

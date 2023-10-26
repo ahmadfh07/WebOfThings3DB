@@ -46,7 +46,7 @@ router.post("/usereference/sensor/:sensorId/:zoneId", async (req, res) => {
       const Sensor = await ReferenceSensor.create({ sensor_id: req.params.sensorId, zone_id: req.params.zoneId });
     }
     const data = await Data.create({ sensor_id: req.params.sensorId, longitude: req.body.longitude, latitude: req.body.latitude, value: req.body.value });
-    res.send({ error: false, msg: "Sensor data input success!", data: { Sensor, data } });
+    res.send({ error: false, msg: "Sensor data input success!" });
   } catch (err) {
     res.send({ error: true, msg: err.message });
   }

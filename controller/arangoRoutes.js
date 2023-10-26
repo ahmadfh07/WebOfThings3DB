@@ -40,7 +40,7 @@ router.post("/useembed/sensor/:sensorId/:zoneId", async (req, res) => {
     FILTER s.sensor_id == ${req.params.sensorId} && s.zone_id == ${req.params.zoneId}
     UPDATE s WITH { data: APPEND(s.data, { location: { longitude: ${req.body.longitude}, latitude: ${req.body.latitude} }, value: ${req.body.value} })} IN Sensor`);
     updateDataArray = await updateData.all();
-    res.send({ error: false, msg: "Sensor data input success!", data: { result, updateDataArray } });
+    res.send({ error: false, msg: "Sensor data input success!" });
   } catch (err) {
     res.send({ error: true, msg: err.message });
   }
@@ -80,7 +80,7 @@ router.post("/usereference/sensor/:sensorId/:zoneId", async (req, res) => {
       const result = await referenceSensorColl.save(newSensor);
     }
     const data = await dataColl.save({ sensor_id: req.params.sensorId, latitude: req.body.latitude, longitude: req.body.longitude, value: req.body.value });
-    res.send({ error: false, msg: "Sensor data input success!", data: { count, data } });
+    res.send({ error: false, msg: "Sensor data input success!" });
   } catch (err) {
     res.send({ error: true, msg: err.message });
   }
