@@ -25,7 +25,7 @@ app.use((req, res) => {
 (async () => {
   const mongo = await mongoConnect();
   const couch = await couchConnect();
-  // const arango = await arangoConnect();
+  const arango = await arangoConnect();
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Express server listening on port ${PORT} in ${app.settings.env} mode`);
   });
