@@ -1,4 +1,4 @@
-@base_url = http://localhost:3000
+@base_url = http://34.16.71.35:3000
 #http://localhost:3000
 #http://34.123.112.126:3000
 # format url /{usedatabase}/sensor/{sensorid}/{zonaid}
@@ -27,7 +27,7 @@ content-type: application/json
     "value" : 35
 }
 ###
-GET {{base_url}}/usemongo/usereference/sensor/1/55186 HTTP/1.1
+GET {{base_url}}/usemongo/usereference/sensor/1/55186?limit=10 HTTP/1.1
 content-type: application/json
 
 ###COUCHDB
@@ -54,7 +54,7 @@ content-type: application/json
     "value" : 35
 }
 ###
-GET {{base_url}}/usecouch/usereference/sensor/1/55186 HTTP/1.1
+GET {{base_url}}/usecouch/usereference/sensor/1/55186?limit=1 HTTP/1.1
 content-type: application/json
 
 
@@ -81,5 +81,5 @@ content-type: application/json
     "value" : 35
 }
 ###
-GET {{base_url}}/usearango/usereference/sensor/2/55286 HTTP/1.1
+GET {{base_url}}/usearango/usereference/sensor/2/55286?limit=1 HTTP/1.1
 content-type: application/json
