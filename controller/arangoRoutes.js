@@ -56,6 +56,7 @@ router.get("/usereference/sensor/:sensorId/:zoneId", async (req, res) => {
     const data = await db.query(aql`
     FOR d IN Data
     FILTER d.sensor_id == ${sensorArray[0].sensor_id}
+    LIMIT ${+req.query.limit}
     RETURN {location : {latitude:d.latitude, longitude:d.longitude}, value:d.value}
     `);
     const dataArray = await data.all();

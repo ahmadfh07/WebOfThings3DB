@@ -31,7 +31,7 @@ router.post("/useembed/sensor/:sensorId/:zoneId", async (req, res) => {
 router.get("/usereference/sensor/:sensorId/:zoneId", async (req, res) => {
   try {
     const Sensor = await sensorReference.findOne({ sensor_id: req.params.sensorId, zone_id: req.params.zoneId });
-    const datas = await Data.find({ sensor_id: req.params.sensorId }).select("-_id location value");
+    const datas = await Data.find({ sensor_id: req.params.sensorId }).select("-_id location value").limit(+req.query.limit);
     res.send({ error: false, msg: "Sensor data retrieved", data: { sensor_id: Sensor.sensor_id, zone_id: Sensor.zone_id, data: datas } });
   } catch (err) {
     res.send({ error: true, msg: err.message });
