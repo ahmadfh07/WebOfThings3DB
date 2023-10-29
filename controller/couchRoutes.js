@@ -31,9 +31,9 @@ router.post("/useembed/sensor/:sensorId/:zoneId", async (req, res) => {
 
 router.get("/usereference/sensor/:sensorId/:zoneId", async (req, res) => {
   try {
-    const options = new FindOptions({ limit: +req.query.limit });
-    const Sensor = await ReferenceSensor.findOne({ sensor_id: req.params.sensorId, zone_id: req.params.zoneId }, options);
-    const datas = await Data.find({ sensor_id: req.params.sensorId });
+    const options = new FindOptions({ limit: +req.query.limit, select: ["langitude", "latitude", "value"] });
+    const Sensor = await ReferenceSensor.findOne({ sensor_id: req.params.sensorId, zone_id: req.params.zoneId });
+    const datas = await Data.find({ sensor_id: req.params.sensorId }, options);
     res.send({ error: false, msg: "Sensor data retrieved", data: { sensor_id: Sensor.sensor_id, zone_id: Sensor.zone_id, data: datas.rows } });
   } catch (err) {
     res.send({ error: true, msg: err.message });
